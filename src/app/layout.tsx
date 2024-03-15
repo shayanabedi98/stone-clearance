@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-neutral-100 2xl:px-28`}>
+        <header className="">
+          <Image
+            priority
+            src="/stonica.png"
+            alt=""
+            width={250}
+            height={150}
+            className="w-60 mt-5"
+          />
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
