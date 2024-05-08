@@ -1,10 +1,11 @@
 "use client";
+import Clearance from "@/components/Clearance";
 import Filter from "@/components/Filter";
-import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
   const [filter, setFilter] = useState({
+    all: true,
     porcelain: false,
     marble: false,
     quartz: false,
@@ -13,6 +14,7 @@ export default function Home() {
 
   const handleClick = (clicked: string) => {
     setFilter({
+      all: clicked === "all",
       porcelain: clicked === "porcelain",
       marble: clicked === "marble",
       quartz: clicked === "quartz",
@@ -31,8 +33,8 @@ export default function Home() {
           clearance prices! We are offering a unique selection of Onyx, Marble,
           Quartz, and Porcelain slabs, perfect for elevating any space with
           their natural beauty and sophistication. These high-quality materials
-          are renowned for their durability and timeless appeal. Don’t miss this
-          opportunity to acquire these exquisite stone slabs at unbeatable
+          are renowned for their durability and timeless appeal. Don&apos;t miss
+          this opportunity to acquire these exquisite stone slabs at unbeatable
           prices. Hurry, as this offer is only available for a limited time in
           the Greater Toronto Area. Enhance your home or business today with our
           premium stone slabs!
@@ -57,6 +59,7 @@ export default function Home() {
           {filter.onyx && "Showing Onyx Clearance"}
         </p>
       </div>
+      <Clearance filter={filter} />
     </div>
   );
 }
